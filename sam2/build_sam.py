@@ -166,10 +166,10 @@ def build_sam2_camera_predictor(
         ]
     hydra_overrides.extend(hydra_overrides_extra)
 
-    #! caishaofei modify begin
+    #! modify begin
     hydra.core.global_hydra.GlobalHydra.instance().clear()
     from pathlib import Path
-    config_path = Path(__file__).parent
+    config_path = Path(__file__).parent / "configs" / "sam2"
     initialize(config_path=config_path, version_base='1.3')
     # Read config and init model
     cfg = compose(config_name=config_file, overrides=hydra_overrides)
